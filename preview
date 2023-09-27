@@ -79,6 +79,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.svg)
 		[ ! -f "${CACHE}.jpg" ] && convert "$1" "${CACHE}.jpg"
 		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+        ;;
     *.nef)
 		[ ! -f "${CACHE}.webp" ] && \
             convert "$1" -depth 8 -auto-orient -resize x600 "${CACHE}.webp"
